@@ -1,10 +1,3 @@
-
-<head> 
-  <style>
-   p {
-    text-indent: 20px;
-   }
-  </style>
 </head> 
 <h1>Задание Monq Digital Lab</h1>
 <br>
