@@ -1,15 +1,31 @@
 import time
 import pytest
+import requests
 from selenium.webdriver import Keys
 from credentials import credentials
 from info_message import messages
+from locators import locators
+from base import BasePage
 
 
 @pytest.mark.usefixtures("driver_init")
 class Test_Web_UI:
+
+# Проверка стаутс-кода сервера
+   def test_server_response(self):
+      response = requests.get("https://www.clockify.me/")
+      if response.status_code == 200:
+         print('Запрос выполнен успешно!')
+         assert True
+      elif response.status_code == 404:
+         print('Запрос не завершился успехом!')
+         assert False
+
+
 # Процесс авторизации
-   def test_auth_user (self):
+   def test_auth_user(self):
       time.sleep(4)
+      # Присвоение локаторов перменным
       input_email = self.driver.find_element('xpath', "//*[@id='email']")
       input_password = self.driver.find_element('xpath', "//*[@id='password']")
       login_button = self.driver.find_element("css selector", "[class='cl-btn cl-btn-block cl-btn-primary ng-tns-c424-1']")
