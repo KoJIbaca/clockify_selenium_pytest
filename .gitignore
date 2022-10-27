@@ -1,4 +1,7 @@
 /locators.py
-.md
-!README.md
-/.pytest_cache/*
+/.pytest_cache/
+/__pycache__
+/tests/.pytest_cache/
+/base.py
+/.idea
+/kek.py
